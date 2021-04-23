@@ -1,0 +1,8 @@
+form {
+    width: 200px;
+}
+#submit {
+    border: solid 2px;
+    margin-left: 50px;
+    color: green;
+}
