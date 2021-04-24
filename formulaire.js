@@ -48,7 +48,46 @@ button.addEventListener("click", function ()
           i.style.background = '';
           var y = 1;
         }
-        if (y == 1 && v == 1 && p == 1) {
+        if (document.getElementById("numero").value == "") // si age n'est pas rempli exécute la suite 
+        {
+          // met en rouge Votre age 
+          var i = document.getElementById("numero");
+          i.style.background = 'red';
+
+
+
+        } else { // remet Votre age en noir
+          var i = document.getElementById("numero");
+          i.style.background = '';
+          var m = 1;
+        }if (document.getElementById("adresse").value == "") // si age n'est pas rempli exécute la suite 
+        {
+          // met en rouge Votre age 
+          var i = document.getElementById("adresse");
+          i.style.background = 'red';
+
+
+
+        } else { // remet Votre age en noir
+          var i = document.getElementById("adresse");
+          i.style.background = '';
+          var o = 1;
+        }if (document.getElementById("statut").value == "choix") // si age n'est pas rempli exécute la suite 
+        {
+          // met en rouge Votre age 
+          var i = document.getElementById("statut");
+          i.style.background = 'red';
+
+
+
+        } else { // remet Votre age en noir
+          var i = document.getElementById("statut");
+          i.style.background = '';
+          var n = 1;
+        }
+      
+        
+        if (y == 1 && v == 1 && p == 1 && m == 1 && o == 1 && n == 1) {
           var form = document.getElementById('formulaire'); // on récupere tout les inputs du formulaire
           var formData = new FormData(form);
           ajax(formData); // on exécute la fonction ajax avec les données du formulaire 
