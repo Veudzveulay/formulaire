@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +7,13 @@
     <link rel="stylesheet" type="text/css" href="form.css" /> 
 </head>
 <body>
-  <form name="formulaire" id="formulaire"  method="POST" >
+  <form name="formulaire" id="formulaire" action="validation.php" method="POST" class="traitement">
     <h1>Formulaire d'identité</h1>
-    
+    <p>Les champs obligatoires sont suivis par <strong><abbr title="required">*</abbr></strong>.</p>
     <section>
         <h2>Vos informations</h2>
         <fieldset>
-          <legend id="sexe">Sexe</legend>
+          <legend>Sexe</legend>
           <ul>
               <li>
                 <label for="title_1">
@@ -32,18 +32,21 @@
         <p>
           <label for="name">
             <span>Nom de famille :</span>
+            <strong><abbr title="required">*</abbr></strong>
           </label>
-          <input type="text" id="name" name="username" >
+          <input type="text" id="name" name="username" pattern="[a-zA-ZÀ-ÿ]{2-50}">
         </p>
         <p>
           <label for="prenom">
             <span>Prénom :</span>
+            <strong><abbr title="required">*</abbr></strong>
           </label>
           <input type="text" id="prenom" name="usersurname" pattern="[a-zA-ZÀ-ÿ]{2-50}">
         </p>
         <p>
           <label for="age">
             <span>Âge :</span>
+            <strong><abbr title="required">*</abbr></strong>
           </label>
           <input type="text" id="age" name="age" pattern="[0-9]+">
         </p>
@@ -69,18 +72,18 @@
         </p>
         <p>
           <label for="date">
-            <span>Adresse postale :</span>
-            
+            <span>Adresse mail :</span>
+            <strong><abbr title="required">*</abbr></strong>
             
           </label>
           <input type="text" id="adresse" name="adresse">
         </p>
     </section>
     <section>
-        <p>   <input  type="button" value="Envoyer" id="envoi">        </p>
+        <p> <button type="submit" name="envoi" id="envoi">Envoyer</button> </p>
         <p id="response"></p>
     </section>
-   
+    <p style="color: red;" id="erreur"></p>
 </form>
 </body>
 
