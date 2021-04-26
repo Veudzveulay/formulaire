@@ -1,20 +1,35 @@
     <?php
     $name = $_POST["username"];
     $prenom = $_POST["usersurname"];
-    $tel = $_POST["telephone"]; // récupere ce qui est dans l'input de email
-    $age = $_POST["age"]; // récupere ce qui est dans l'input de age
-    $adresse = $_POST["adresse"]; // récupere ce qui est dans l'input de age
-    
-    if(preg_match("/^([a-zA-Z' ]+)$/",$name)) {
+    $tel = filter_var($_POST["telephone"], FILTER_SANITIZE_NUMBER_INT);
+    $age = $_POST["age"];
+    $adresse = $_POST["adresse"];
+
+    if (preg_match("/^([a-zA-Z' ]+)$/", $name)) {
         echo "Votre nom est correct";
-    }
-    else {
+    } else {
         echo "Vous avez mal écrit votre nom";
     }
-    if(preg_match("/^([a-zA-Z' ]+)$/",$prenom)) {
+    if (preg_match("/^([a-zA-Z' ]+)$/", $prenom)) {
         echo "<br>Votre prenom est correct";
+    } else {
+        echo "<br>Vous avez mal écrit votre prenom";
     }
-    else {
-        echo "Vous avez mal écrit votre prenom"; 
+    if (filter_var($adresse, FILTER_VALIDATE_EMAIL)) {
+        echo ("<br> adresse mail valide");
+    } else {
+        echo ("<br> adresse mail invalide");
     }
+    if (filter_var($age, FILTER_SANITIZE_NUMBER_INT)) {
+        echo ("<br> Vous avez $age");
+    } else {
+        echo ("<br> Veuillez renseigner un âge valide");
+    }
+    if ($tel == 1) {
+        echo "Votre $tel est bon";
+    } else {
+        echo "Numéro de téléphone pas valide";
+    }
+
+
     ?>
