@@ -112,6 +112,6 @@ function validation_Nom_Prenom(verif) {
  return nom_Prenom.test(verif);
 }
 function validation_age(annee){
-    var old = new RegExp([0-9]);
+    var old = new RegExp(/^[0-9]/);
     return old.test(annee)
 }
