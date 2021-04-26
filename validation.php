@@ -21,7 +21,7 @@
         echo ("<br> adresse mail invalide");
     }
     if (filter_var($age, FILTER_SANITIZE_NUMBER_INT)) {
-        echo ("<br> Vous avez $age");
+        echo ("<br> Vous avez $age ans");
     } else {
         echo ("<br> Veuillez renseigner un âge valide");
     }
