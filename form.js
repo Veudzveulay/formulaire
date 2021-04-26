@@ -37,18 +37,14 @@ button.addEventListener("click", function () {
 
   }
   // Vérification de l'âge
-  if (document.getElementById("age").value == "")  
-  {
-     
-    var age = document.getElementById("age");
-    age.style.background = 'red';
-
-
-
-  } else { 
-    var age = document.getElementById("age");
-    age.style.background = '';
-    var y = 1;
+  if (validation_age(document.getElementById("age").value)){
+      var age = document.getElementById("age");
+      age.style.background = '';
+      var y = 1;
+  }
+  else {
+      var age = document.getElementById("age");
+      age.style.background = 'red';
   }
   // vérfication du téléphone 
   if (Verifier_Numero_Telephone(document.getElementById("numero").value))  
@@ -114,4 +110,8 @@ function validation_Nom_Prenom(verif) {
 
  var nom_Prenom = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
  return nom_Prenom.test(verif);
+}
+function validation_age(annee){
+    var old = new RegExp([0-9]);
+    return old.test(annee)
 }
